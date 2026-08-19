@@ -1,0 +1,7 @@
+{
+  "name": "FamilyCare Hub",
+  "description": "Family care task coordination, vital sign logs with trend charts, and Gemini AI clinical health summary brief engine.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
