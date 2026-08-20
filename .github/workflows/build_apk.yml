@@ -69,7 +69,7 @@ jobs:
           STORE_PASSWORD: android
           KEY_PASSWORD: android
         run: |
-          ./gradlew assembleRelease assembleDebug --no-daemon --stacktrace -x test -x roborazziDebug
+          ./gradlew :app:assembleRelease :app:assembleDebug --no-daemon --stacktrace -x test
 
       - name: Organize Generated APK Artifacts
         run: |
