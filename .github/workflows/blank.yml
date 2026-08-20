@@ -28,8 +28,6 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          cache-disabled: true
 
       - name: Inject .env Environment Secrets
         run: |
@@ -49,7 +47,8 @@ jobs:
 
       - name: Build Debug APK
         run: |
-          ./gradlew :app:assembleDebug --no-daemon --stacktrace -x test
+          ./gradlew :app:compileDebugKotlin --stacktrace || true
+          ./gradlew :app:assembleDebug --no-daemon -x test
 
       - name: Collect Generated APKs
         run: |
