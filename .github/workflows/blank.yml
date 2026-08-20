@@ -41,14 +41,13 @@ jobs:
       - name: Ensure Gradle Wrapper Exists
         run: |
           if [ ! -f "./gradlew" ]; then
-            echo "gradlew not found. Generating wrapper..."
             gradle wrapper
           fi
           chmod +x gradlew
 
-      - name: Build APKs
+      - name: Build Debug APK
         run: |
-          ./gradlew assembleDebug assembleRelease --no-daemon -x test
+          ./gradlew :app:assembleDebug --no-daemon --info -x test
 
       - name: Collect Generated APKs
         run: |
