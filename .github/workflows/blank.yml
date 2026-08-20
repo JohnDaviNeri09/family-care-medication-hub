@@ -34,9 +34,6 @@ jobs:
           if [ ! -f .env ]; then
             echo "GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY || 'AIzaSyPlaceholderKeyForBuildCheck12345' }}" > .env
           fi
-          if [ ! -f .env.example ]; then
-            echo "GEMINI_API_KEY=placeholder" > .env.example
-          fi
 
       - name: Ensure Gradle Wrapper Exists
         run: |
@@ -47,7 +44,6 @@ jobs:
 
       - name: Build Debug APK
         run: |
-          ./gradlew :app:compileDebugKotlin --stacktrace || true
           ./gradlew :app:assembleDebug --no-daemon -x test
 
       - name: Collect Generated APKs
